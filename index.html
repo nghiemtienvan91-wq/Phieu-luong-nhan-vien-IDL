@@ -90,9 +90,11 @@
 <tr><td>Công đoàn</td><td class="val" id="lblUnion">0</td></tr>
 
 <tr class="group"><td colspan="2">D. THUẾ TNCN DỰ KIẾN 2026</td></tr>
-<tr><td>Tổng thu nhập miễn TNCN (OT/đêm + khoản độc hại đủ điều kiện)</td><td class="val" id="lblTaxExempt">0</td></tr>
-<tr><td>Thu nhập tính thuế sau giảm trừ</td><td class="val" id="lblTaxable">0</td></tr>
-<tr><td>Thuế TNCN</td><td class="val" id="lblPit">0</td></tr>
+<tr style="display:none" aria-hidden="true"><td>Thu nhập miễn thuế TNCN (OT/đêm + khoản độc hại đủ điều kiện)</td><td class="val" id="lblTaxExempt">0</td></tr>
+<tr><td>Giảm trừ bản thân</td><td class="val" id="lblPersonalDeduction">15.500.000</td></tr>
+<tr><td>Giảm trừ người phụ thuộc</td><td class="val" id="lblDependentDeduction">0</td></tr>
+<tr><td>Thu nhập tính thuế</td><td class="val" id="lblTaxable">0</td></tr>
+<tr><td>Thuế TNCN dự kiến</td><td class="val" id="lblPit">0</td></tr>
 
 <tr class="group"><td colspan="2">E. THỰC LĨNH</td></tr>
 <tr><td>Khấu trừ khác</td><td class="val" id="lblOther">0</td></tr>
@@ -161,7 +163,7 @@ function tinhToan(){
  const other=num('otherDeduction');
  const net=gross-insuranceTotal-union-pit-other;
  set('lblStandardHours',monthlyStandardHours); set('lblPaidHours',paidHours); set('lblMissingHours',missingHours); set('lblTotalOtHours',totalOtHours);
- set('lblBase',baseActual); set('lblSeniority',seniorityActual); set('lblGas',gasActual); set('lblHousing',housingActual); set('lblAttendance',attendanceVal); set('lblSpecial',specialActual); set('lblPosition',positionActual); set('lblResponsibility',responsibilityActual); set('lblPhysiological',physiologicalActual); set('lblHazard',hazardActual); set('lblEnvironment',environmentActual); set('lblOtBase',otBaseTotal); set('lblSubNight',tienSubNight); set('lblOtDay',tienOtDay); set('lblOtNight',tienOtNight); set('lblOtSunDay',tienOtSunDay); set('lblOtSunNight',tienOtSunNight); set('lblOtHolidayDay',tienOtHolidayDay); set('lblOtHolidayNight',tienOtHolidayNight); set('lblGross',gross); set('lblBHXH',bhxh); set('lblBHYT',bhyt); set('lblBHTN',bhtn); set('lblInsuranceTotal',insuranceTotal); set('lblUnion',union); set('lblTaxExempt',taxExemptIncome); set('lblTaxable',taxable); set('lblPit',pit); set('lblOther',other); set('lblNet',net);
+ set('lblBase',baseActual); set('lblSeniority',seniorityActual); set('lblGas',gasActual); set('lblHousing',housingActual); set('lblAttendance',attendanceVal); set('lblSpecial',specialActual); set('lblPosition',positionActual); set('lblResponsibility',responsibilityActual); set('lblPhysiological',physiologicalActual); set('lblHazard',hazardActual); set('lblEnvironment',environmentActual); set('lblOtBase',otBaseTotal); set('lblSubNight',tienSubNight); set('lblOtDay',tienOtDay); set('lblOtNight',tienOtNight); set('lblOtSunDay',tienOtSunDay); set('lblOtSunNight',tienOtSunNight); set('lblOtHolidayDay',tienOtHolidayDay); set('lblOtHolidayNight',tienOtHolidayNight); set('lblGross',gross); set('lblBHXH',bhxh); set('lblBHYT',bhyt); set('lblBHTN',bhtn); set('lblInsuranceTotal',insuranceTotal); set('lblUnion',union); set('lblTaxExempt',taxExemptIncome); set('lblPersonalDeduction',15500000); set('lblDependentDeduction',dependents*6200000); set('lblTaxable',taxable); set('lblPit',pit); set('lblOther',other); set('lblNet',net);
  const pm=document.getElementById('payMonth')?.value||'';
  document.getElementById('outPayMonth').textContent=pm?pm.slice(5,7)+'/'+pm.slice(0,4):'Chưa chọn';
  document.getElementById('workSummary').textContent=`Giờ công chuẩn: ${money(monthlyStandardHours)} giờ · Giờ hưởng lương: ${money(paidHours)} giờ · Giờ thiếu: ${money(missingHours)} giờ`;
